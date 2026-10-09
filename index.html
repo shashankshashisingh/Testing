@@ -231,7 +231,11 @@
           </address>
         </div>
 
-        <form id="contact-form" class="contact-form" novalidate>
+        <form id="contact-form" class="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden>
+            <label>Leave this field empty: <input name="bot-field" autocomplete="off" tabindex="-1"></label>
+          </p>
           <label class="field">
             <span>Full name</span>
             <input name="name" type="text" autocomplete="name" required>

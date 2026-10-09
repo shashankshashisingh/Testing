@@ -93,13 +93,15 @@
   yearsInput.addEventListener("input", render);
   render();
 
-  /* Contact form: validates in the browser. Connect it to a form service or backend to receive messages. */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
+  var submitButton = form.querySelector('button[type="submit"]');
+  form.noValidate = true;
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", async function (event) {
     event.preventDefault();
-    var fields = form.querySelectorAll("input, select, textarea");
+    if (submitButton.disabled) return;
+    var fields = form.querySelectorAll("input[required], select[required], textarea[required]");
     var firstBad = null;
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -118,9 +120,31 @@
     }
 
     var name = form.elements.name.value.trim().split(" ")[0];
-    status.textContent = "Thank you, " + name + ". We will reply within one business day.";
-    form.reset();
-    Array.prototype.forEach.call(fields, function (field) { field.removeAttribute("aria-invalid"); });
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending…";
+    form.setAttribute("aria-busy", "true");
+    status.textContent = "Sending your message…";
+
+    try {
+      var response = await fetch(form.getAttribute("action"), {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+
+      if (!response.ok) throw new Error("Message submission failed");
+
+      status.textContent = "Thank you, " + name + ". Your message has been sent. We will reply within one business day.";
+      form.reset();
+      Array.prototype.forEach.call(fields, function (field) { field.removeAttribute("aria-invalid"); });
+    } catch (error) {
+      status.classList.add("is-error");
+      status.textContent = "Your message could not be sent. Please try again or use the email link to contact us directly.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send message";
+      form.removeAttribute("aria-busy");
+    }
   });
 
   document.getElementById("year").textContent = new Date().getFullYear();
