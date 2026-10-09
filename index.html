@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Larkfield Asset Management</title>
+  <meta name="description" content="Larkfield manages long-term portfolios for pension funds, foundations and families, with one clear fee and no performance charges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top" aria-label="Larkfield Asset Management, home">Larkfield</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#strategies">Strategies</a>
+        <a href="#approach">Approach</a>
+        <a href="#fees">Fees</a>
+        <a href="#team">Team</a>
+        <a href="#notes">Notes</a>
+      </nav>
+      <a class="btn btn-small" href="#contact">Book an introduction</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Patient capital, managed with discipline.</h1>
+          <p class="lede">Larkfield manages $4.2 billion for pension funds, foundations and families. We hold one rule above the rest: every decision should still make sense in ten years.</p>
+          <div class="actions">
+            <a class="btn" href="#contact">Book an introduction</a>
+            <a class="btn btn-quiet" href="#strategies">See our strategies</a>
+          </div>
+        </div>
+
+        <div class="chart-panel" aria-labelledby="chart-title">
+          <h2 id="chart-title">What a long horizon does</h2>
+          <form class="chart-controls" onsubmit="return false">
+            <label class="field">
+              <span>Starting amount</span>
+              <input id="amount" type="number" inputmode="numeric" min="1000" max="1000000000" step="1000" value="100000">
+            </label>
+            <label class="field">
+              <span>Years invested: <output id="years-out" for="years">20</output></span>
+              <input id="years" type="range" min="1" max="40" value="20">
+            </label>
+          </form>
+
+          <svg id="chart" viewBox="0 0 640 340" role="img" aria-label="Growth chart"></svg>
+
+          <dl class="chart-readout" aria-live="polite">
+            <div>
+              <dt><span class="swatch swatch-invested" aria-hidden="true"></span>Invested at 7% a year</dt>
+              <dd id="out-invested">–</dd>
+            </div>
+            <div>
+              <dt><span class="swatch swatch-cash" aria-hidden="true"></span>Held in cash at 2% a year</dt>
+              <dd id="out-cash">–</dd>
+            </div>
+          </dl>
+          <p class="fine">Hypothetical illustration using constant annual returns and no fees or taxes. Real returns vary from year to year, and you can lose money.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="strategies" aria-labelledby="strategies-title">
+      <div class="wrap">
+        <h2 id="strategies-title" class="section-title">Five strategies, built to be held together or apart</h2>
+        <p class="section-intro">Most clients combine two or three. Each strategy has its own written mandate, so you always know what it can and cannot buy.</p>
+
+        <div class="rows" role="table" aria-label="Larkfield investment strategies">
+          <div class="row row-head" role="row">
+            <span role="columnheader">Strategy</span>
+            <span role="columnheader">What it does</span>
+            <span role="columnheader">Minimum</span>
+            <span role="columnheader">Suggested horizon</span>
+          </div>
+          <div class="row" role="row">
+            <h3 role="rowheader">Global equities</h3>
+            <p role="cell" data-label="What it does">About 60 listed companies across developed and emerging markets, chosen for durable cash flow and sensible prices.</p>
+            <p role="cell" data-label="Minimum">$1 million</p>
+            <p role="cell" data-label="Suggested horizon">7 years or more</p>
+          </div>
+          <div class="row" role="row">
+            <h3 role="rowheader">Investment-grade bonds</h3>
+            <p role="cell" data-label="What it does">Government and corporate bonds that aim to protect capital and pay a steady income.</p>
+            <p role="cell" data-label="Minimum">$1 million</p>
+            <p role="cell" data-label="Suggested horizon">3 years or more</p>
+          </div>
+          <div class="row" role="row">
+            <h3 role="rowheader">Real assets</h3>
+            <p role="cell" data-label="What it does">Infrastructure, logistics property and renewable energy, held for rent and inflation-linked income.</p>
+            <p role="cell" data-label="Minimum">$5 million</p>
+            <p role="cell" data-label="Suggested horizon">10 years or more</p>
+          </div>
+          <div class="row" role="row">
+            <h3 role="rowheader">Private credit</h3>
+            <p role="cell" data-label="What it does">Senior loans to mid-sized companies, with strict limits on size and sector concentration.</p>
+            <p role="cell" data-label="Minimum">$5 million</p>
+            <p role="cell" data-label="Suggested horizon">5 years or more</p>
+          </div>
+          <div class="row" role="row">
+            <h3 role="rowheader">Multi-asset portfolios</h3>
+            <p role="cell" data-label="What it does">One portfolio that blends the four above to match your goals, risk limits and cash needs.</p>
+            <p role="cell" data-label="Minimum">$2 million</p>
+            <p role="cell" data-label="Suggested horizon">7 years or more</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <h2 id="approach-title" class="section-title">How we work with you</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Listen</h3>
+            <p>We start with what the money is for: payments you must make, goals you want to reach and losses you cannot accept.</p>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Agree a mandate</h3>
+            <p>We write down the target return, the risk limits and what we will never buy. You sign it before we invest a dollar.</p>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Invest gradually</h3>
+            <p>We build positions over weeks or months, which avoids committing everything at a single price.</p>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true">4</span>
+            <h3>Report plainly</h3>
+            <p>Each quarter you get a four-page report: what we did, what it cost, what went wrong and what we will change.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="fees" aria-labelledby="fees-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="fees-title" class="section-title">One fee, written in one line</h2>
+          <p class="section-intro">We charge a percentage of the assets we manage. There are no performance fees, no entry or exit charges and no separate custody markups.</p>
+        </div>
+        <table class="fee-table">
+          <caption class="sr-only">Annual management fee by portfolio size</caption>
+          <thead>
+            <tr><th scope="col">Assets with Larkfield</th><th scope="col">Annual fee</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">First $10 million</th><td>0.45%</td></tr>
+            <tr><th scope="row">$10 million to $50 million</th><td>0.38%</td></tr>
+            <tr><th scope="row">Above $50 million</th><td>0.30%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <h2 id="team-title" class="section-title">The people who manage your money</h2>
+        <ul class="team">
+          <li>
+            <span class="avatar" aria-hidden="true">AM</span>
+            <h3>Anika Mehra</h3>
+            <p class="role">Chief Investment Officer</p>
+            <p>Twenty years running pension portfolios. Reviews every new position personally.</p>
+          </li>
+          <li>
+            <span class="avatar" aria-hidden="true">DO</span>
+            <h3>Daniel Osei</h3>
+            <p class="role">Head of Fixed Income</p>
+            <p>Former central bank economist who leads our bond and private credit work.</p>
+          </li>
+          <li>
+            <span class="avatar" aria-hidden="true">SL</span>
+            <h3>Sofia Lindqvist</h3>
+            <p class="role">Head of Real Assets</p>
+            <p>Has built and sold infrastructure businesses on three continents.</p>
+          </li>
+          <li>
+            <span class="avatar" aria-hidden="true">RK</span>
+            <h3>Rahul Khanna</h3>
+            <p class="role">Head of Client Service</p>
+            <p>Your first call for questions on reports, withdrawals and tax paperwork.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="notes" aria-labelledby="notes-title">
+      <div class="wrap">
+        <h2 id="notes-title" class="section-title">Notes from the investment team</h2>
+        <div class="notes">
+          <article>
+            <time datetime="2026-09-18">18 September 2026</time>
+            <h3>Why we hold more cash than our benchmark</h3>
+            <p>A short note on what cash buys us when markets fall, and what it costs when they rise. 6 minute read.</p>
+          </article>
+          <article>
+            <time datetime="2026-08-04">4 August 2026</time>
+            <h3>What we learned from five years of private credit</h3>
+            <p>Where loans performed as expected, where they did not, and the three rules we added. 9 minute read.</p>
+          </article>
+          <article>
+            <time datetime="2026-06-22">22 June 2026</time>
+            <h3>How we judge a company's cash flow</h3>
+            <p>The checks we run before a company enters the equity portfolio. 7 minute read.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-ink" id="contact" aria-labelledby="contact-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="contact-title" class="section-title">Talk to us before you decide</h2>
+          <p class="section-intro">Tell us a little about your situation. A senior member of the team will reply within one business day to set up a call. There is no charge for the first conversation.</p>
+          <address>
+            Larkfield Asset Management<br>
+            14 Aldwych Court, Mumbai 400001<br>
+            <a href="mailto:hello@larkfield.example">hello@larkfield.example</a><br>
+            +91 22 5550 0142
+          </address>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <label class="field">
+            <span>Full name</span>
+            <input name="name" type="text" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>Email address</span>
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label class="field">
+            <span>You are investing as</span>
+            <select name="type" required>
+              <option value="">Choose one</option>
+              <option>An individual or family</option>
+              <option>A foundation or charity</option>
+              <option>A pension fund</option>
+              <option>A company</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>How can we help?</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn btn-light" type="submit">Send message</button>
+          <p id="form-status" class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="fine">Larkfield Asset Management is a fictional company created as a website demonstration. Figures, names and addresses are placeholders. Nothing on this site is investment advice or an offer to buy or sell any security. The value of investments can fall as well as rise, and past performance does not guide future results.</p>
+      <p class="fine">&copy; <span id="year">2026</span> Larkfield Asset Management. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
